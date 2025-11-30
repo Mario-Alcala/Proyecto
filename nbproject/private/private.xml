@@ -6,9 +6,11 @@
             <file>file:/C:/Users/aleja/OneDrive/Documentos/NetBeansProjects/Proyecto/src/proyecto/Proyecto.java</file>
             <file>file:/C:/Users/aleja/OneDrive/Documentos/NetBeansProjects/Proyecto/src/proyecto/estructura/ABB.java</file>
             <file>file:/C:/Users/aleja/OneDrive/Documentos/NetBeansProjects/Proyecto/src/proyecto/estructura/Nodo.java</file>
-            <file>file:/C:/Users/aleja/OneDrive/Documentos/NetBeansProjects/Proyecto/src/proyecto/utils/BusquedaUtils.java</file>
             <file>file:/C:/Users/aleja/OneDrive/Documentos/NetBeansProjects/Proyecto/src/proyecto/pojo/Producto.java</file>
-            <file>file:/C:/Users/aleja/OneDrive/Documentos/NetBeansProjects/Proyecto/src/proyecto/interfaces/ProductosGUI.java</file>
+            <file>file:/C:/Users/aleja/OneDrive/Documentos/NetBeansProjects/Proyecto/src/proyecto/interfaces/inventarioApp.java</file>
+            <file>file:/C:/Users/aleja/OneDrive/Documentos/NetBeansProjects/Proyecto/src/proyecto/utils/JsonUtils.java</file>
+            <file>file:/C:/Users/aleja/OneDrive/Documentos/NetBeansProjects/Proyecto/src/proyecto/pojo/Eliminacion.java</file>
+            <file>file:/C:/Users/aleja/OneDrive/Documentos/NetBeansProjects/Proyecto/src/proyecto/inventario/InventarioManager.java</file>
         </group>
     </open-files>
 </project-private>
