@@ -5,9 +5,12 @@
 package proyecto.InterfazGrafica;
 
 import java.awt.Color;
+import java.io.FileNotFoundException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
- *
+ *Clase para la interfaz principal
  * @author aleja
  */
 public class PrincipalView extends javax.swing.JFrame {
@@ -37,7 +40,7 @@ public class PrincipalView extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         sidebar_panel = new javax.swing.JPanel();
         btn_agregar = new javax.swing.JPanel();
-        jlabel_agregarP = new javax.swing.JLabel();
+        jlabel_agregarP1 = new javax.swing.JLabel();
         btn_mostrar = new javax.swing.JPanel();
         jlabel_mostrar = new javax.swing.JLabel();
         btn_editar = new javax.swing.JPanel();
@@ -48,6 +51,8 @@ public class PrincipalView extends javax.swing.JFrame {
         jlabel_eliminar = new javax.swing.JLabel();
         btn_Buscar = new javax.swing.JPanel();
         jlabel_buscar = new javax.swing.JLabel();
+        texto_bienvenida = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -70,26 +75,32 @@ public class PrincipalView extends javax.swing.JFrame {
         btn_agregar.setBackground(new java.awt.Color(37, 37, 38));
         btn_agregar.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btn_agregar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_agregarMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 btn_agregarMouseEntered(evt);
             }
         });
         btn_agregar.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jlabel_agregarP.setBackground(new java.awt.Color(51, 0, 255));
-        jlabel_agregarP.setFont(new java.awt.Font("HP Simplified Hans", 1, 14)); // NOI18N
-        jlabel_agregarP.setForeground(new java.awt.Color(199, 199, 199));
-        jlabel_agregarP.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto/resources/img_iconos/duplicate_12108396.png"))); // NOI18N
-        jlabel_agregarP.setText("Agregar Productos");
-        jlabel_agregarP.addMouseListener(new java.awt.event.MouseAdapter() {
+        jlabel_agregarP1.setBackground(new java.awt.Color(51, 0, 255));
+        jlabel_agregarP1.setFont(new java.awt.Font("HP Simplified Hans", 1, 14)); // NOI18N
+        jlabel_agregarP1.setForeground(new java.awt.Color(199, 199, 199));
+        jlabel_agregarP1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto/resources/img_iconos/duplicate_12108396.png"))); // NOI18N
+        jlabel_agregarP1.setText("Agregar Productos");
+        jlabel_agregarP1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jlabel_agregarP1MouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jlabel_agregarPMouseEntered(evt);
+                jlabel_agregarP1MouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                jlabel_agregarPMouseExited(evt);
+                jlabel_agregarP1MouseExited(evt);
             }
         });
-        btn_agregar.add(jlabel_agregarP, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 140, 20));
+        btn_agregar.add(jlabel_agregarP1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 200, 60));
 
         sidebar_panel.add(btn_agregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 150, 200, 60));
 
@@ -103,6 +114,9 @@ public class PrincipalView extends javax.swing.JFrame {
         jlabel_mostrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto/resources/img_iconos/vista.png"))); // NOI18N
         jlabel_mostrar.setText("Mostrar");
         jlabel_mostrar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jlabel_mostrarMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 jlabel_mostrarMouseEntered(evt);
             }
@@ -110,7 +124,7 @@ public class PrincipalView extends javax.swing.JFrame {
                 jlabel_mostrarMouseExited(evt);
             }
         });
-        btn_mostrar.add(jlabel_mostrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 140, 20));
+        btn_mostrar.add(jlabel_mostrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 200, 60));
 
         sidebar_panel.add(btn_mostrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 210, 200, 60));
 
@@ -124,6 +138,9 @@ public class PrincipalView extends javax.swing.JFrame {
         jlabel_editar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto/resources/img_iconos/editar.png"))); // NOI18N
         jlabel_editar.setText("Editar");
         jlabel_editar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jlabel_editarMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 jlabel_editarMouseEntered(evt);
             }
@@ -131,7 +148,7 @@ public class PrincipalView extends javax.swing.JFrame {
                 jlabel_editarMouseExited(evt);
             }
         });
-        btn_editar.add(jlabel_editar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 140, 20));
+        btn_editar.add(jlabel_editar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 200, 60));
 
         sidebar_panel.add(btn_editar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 270, 200, 60));
 
@@ -167,7 +184,7 @@ public class PrincipalView extends javax.swing.JFrame {
                 jlabel_eliminarMouseExited(evt);
             }
         });
-        btn_Eliminar.add(jlabel_eliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 140, 20));
+        btn_Eliminar.add(jlabel_eliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 200, 60));
 
         sidebar_panel.add(btn_Eliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 330, 200, 60));
 
@@ -188,13 +205,30 @@ public class PrincipalView extends javax.swing.JFrame {
                 jlabel_buscarMouseExited(evt);
             }
         });
-        btn_Buscar.add(jlabel_buscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 140, 20));
+        btn_Buscar.add(jlabel_buscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 200, 60));
 
         sidebar_panel.add(btn_Buscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 390, 200, 60));
 
         getContentPane().add(sidebar_panel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, 200, 650));
 
-        setSize(new java.awt.Dimension(985, 740));
+        texto_bienvenida.setBackground(new java.awt.Color(51, 0, 255));
+        texto_bienvenida.setFont(new java.awt.Font("HP Simplified Hans", 1, 48)); // NOI18N
+        texto_bienvenida.setForeground(new java.awt.Color(199, 199, 199));
+        texto_bienvenida.setText("Bienvenido al programa  ");
+        texto_bienvenida.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                texto_bienvenidaMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                texto_bienvenidaMouseExited(evt);
+            }
+        });
+        getContentPane().add(texto_bienvenida, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 330, 560, 70));
+
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto/resources/img_iconos/supermercado (1).png"))); // NOI18N
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 110, 200, 210));
+
+        pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -205,50 +239,131 @@ public class PrincipalView extends javax.swing.JFrame {
      * Event para que cambie el color cuando selecciona o pasa encima del jlabel
      * @param evt 
      */
-    private void jlabel_agregarPMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlabel_agregarPMouseEntered
+    private void texto_bienvenidaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_texto_bienvenidaMouseEntered
         btn_agregar.setBackground(mouseEnterColor);
-    }//GEN-LAST:event_jlabel_agregarPMouseEntered
-
-    private void jlabel_agregarPMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlabel_agregarPMouseExited
+    }//GEN-LAST:event_texto_bienvenidaMouseEntered
+    /**
+     * 
+     * @param evt 
+     */
+    private void texto_bienvenidaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_texto_bienvenidaMouseExited
         btn_agregar.setBackground(mouseExitColor);
-    }//GEN-LAST:event_jlabel_agregarPMouseExited
-
+    }//GEN-LAST:event_texto_bienvenidaMouseExited
+    /**
+     * Metodo para que cuando el mouse pase por encima, cambie de color
+     * @param evt 
+     */
     private void jlabel_mostrarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlabel_mostrarMouseEntered
         btn_mostrar.setBackground(mouseEnterColor);
     }//GEN-LAST:event_jlabel_mostrarMouseEntered
-
+    /**
+     * Metodo para que cuando el mouse salga , regrese a su color original
+     * @param evt 
+     */
     private void jlabel_mostrarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlabel_mostrarMouseExited
         btn_mostrar.setBackground(mouseExitColor);
     }//GEN-LAST:event_jlabel_mostrarMouseExited
-
+    /**
+     * Metodo para que cuando el mouse pase por encima, cambie de color
+     * @param evt 
+     */
     private void jlabel_editarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlabel_editarMouseEntered
         btn_editar.setBackground(mouseEnterColor);
     }//GEN-LAST:event_jlabel_editarMouseEntered
-
+    /**
+     * Metodo para que cuando el mouse salga , regrese a su color original
+     * @param evt 
+     */
     private void jlabel_editarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlabel_editarMouseExited
         btn_editar.setBackground(mouseExitColor);
     }//GEN-LAST:event_jlabel_editarMouseExited
-
+    /**
+     * Metodo para que cuando el mouse pase por encima, cambie de color
+     * @param evt 
+     */
     private void jlabel_eliminarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlabel_eliminarMouseEntered
         btn_Eliminar.setBackground(mouseEnterColor);
        
     }//GEN-LAST:event_jlabel_eliminarMouseEntered
-
+    /**
+     * Metodo para que cuando el mouse salga , regrese a su color original
+     * @param evt 
+     */
     private void jlabel_eliminarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlabel_eliminarMouseExited
         btn_Eliminar.setBackground(mouseExitColor);
     }//GEN-LAST:event_jlabel_eliminarMouseExited
-
+    /**
+     * Metodo para que cuando el mouse pase por encima, cambie de color
+     * @param evt 
+     */
     private void btn_EliminarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_EliminarMouseEntered
         // TODO add your handling code here:
     }//GEN-LAST:event_btn_EliminarMouseEntered
-
+    /**
+     * Metodo para que cuando el mouse pase por encima, cambie de color
+     * @param evt 
+     */
     private void jlabel_buscarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlabel_buscarMouseEntered
         btn_Buscar.setBackground(mouseEnterColor);
     }//GEN-LAST:event_jlabel_buscarMouseEntered
-
+    /**
+     * Metodo para que cuando el mouse salga , regrese a su color original
+     * @param evt 
+     */
     private void jlabel_buscarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlabel_buscarMouseExited
         btn_Buscar.setBackground(mouseExitColor);
     }//GEN-LAST:event_jlabel_buscarMouseExited
+
+    private void btn_agregarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_agregarMouseClicked
+       
+        
+    }//GEN-LAST:event_btn_agregarMouseClicked
+    /**
+     * Metodo para que cuando el mouse pase por encima, cambie de color
+     * @param evt 
+     */
+    private void jlabel_agregarP1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlabel_agregarP1MouseEntered
+        btn_agregar.setBackground(mouseEnterColor);
+    }//GEN-LAST:event_jlabel_agregarP1MouseEntered
+    /**
+     * Metodo para que cuando el mouse salga , regrese a su color original
+     * @param evt 
+     */
+    private void jlabel_agregarP1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlabel_agregarP1MouseExited
+        btn_agregar.setBackground(mouseExitColor);
+    }//GEN-LAST:event_jlabel_agregarP1MouseExited
+    /**
+     * Metodo para que cuando pulse esa area, cambie a la ventana de agregar
+     * @param evt 
+     */
+    private void jlabel_agregarP1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlabel_agregarP1MouseClicked
+        this.dispose();
+        new AgregarView().setVisible(true);
+    }//GEN-LAST:event_jlabel_agregarP1MouseClicked
+    /**
+     * Metodo para que cuando pulse esa area, cambie a ventana de mostrar
+     * @param evt 
+     */
+    private void jlabel_mostrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlabel_mostrarMouseClicked
+        this.dispose();
+        try {
+            new MostrarView().setVisible(true);
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(PrincipalView.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jlabel_mostrarMouseClicked
+    /**
+     * Metodo para que cuando pulse esa area, cambie a ventana de editar
+     * @param evt 
+     */
+    private void jlabel_editarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlabel_editarMouseClicked
+        this.dispose();
+        try {
+            new EditarView().setVisible(true);
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(PrincipalView.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jlabel_editarMouseClicked
 
     /**
      * @param args the command line arguments
@@ -264,7 +379,8 @@ public class PrincipalView extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jlabel_agregarP;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jlabel_agregarP1;
     private javax.swing.JLabel jlabel_buscar;
     private javax.swing.JLabel jlabel_editar;
     private javax.swing.JLabel jlabel_eliminar;
@@ -272,6 +388,7 @@ public class PrincipalView extends javax.swing.JFrame {
     private javax.swing.JPanel panel_barraAccion;
     private javax.swing.JPanel panel_titulo;
     private javax.swing.JPanel sidebar_panel;
+    private javax.swing.JLabel texto_bienvenida;
     // End of variables declaration//GEN-END:variables
 }
 

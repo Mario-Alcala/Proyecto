@@ -6,6 +6,7 @@ package proyecto.ABB_Productos.Estructura;
 
 import java.util.ArrayList;
 import java.util.List;
+import proyecto.ABB_Productos.Estructura.Nodo;
 import proyecto.pojo.Producto;
 
 /**
@@ -84,7 +85,7 @@ public class ABB {
      */
     public Producto buscar(Producto valor){
         this.comparaciones = 0;
-        Producto resultado = buscarRecursivo(raiz, valor);
+        Producto resultado = buscarRecursivo(raiz, valor); //se le pasa el nodo raiz, porque desde ahi debe empezar
         System.out.print("Buscar (ABB) - " + valor);
         if (resultado != null){
             System.out.print(" si existe");
@@ -103,10 +104,15 @@ public class ABB {
      * @return 
      */
     private Producto buscarRecursivo(Nodo nodo, Producto valor){
+        //caso base de la recursion para poder finalizar
         if (nodo == null){
             return null;
         }
+        
         comparaciones++;
+        
+        //usa el metodo compareTo y le pasa el producto como parametro
+        //En compareTo, valor es el nodo actual
         int resultadocomparacion = nodo.compareTo(valor);
         if(resultadocomparacion == 0){
             return nodo.getValor();
@@ -159,5 +165,66 @@ public class ABB {
             recorrerInordenRecursivo(nodo.getIzquierdo(), lista);
         }
     }
+    /**
+     * 
+     * @param clave 
+     */
+    public void eliminar(String clave){
+        this.raiz = eliminarRecursivo(raiz, clave);
+    }
+    /**
+     * 
+     * @param nodo
+     * @param clave
+     * @return 
+     */
+    private Nodo eliminarRecursivo(Nodo nodo, String clave){
+        if (nodo == null){
+            return null;
+        }
+        comparaciones++;
+        int resultadocomparacion = clave.compareToIgnoreCase(nodo.getValor().getClave());
+        
+        if(resultadocomparacion == 0){ //lo encontro
+            
+            //en caso del que el nodo que se quiera eliminar no tenga hijos
+            if(nodo.getIzquierdo() == null && nodo.getDerecho() == null){
+                return null;
+            }
+            
+            //Caso en el que solo tengan un hijo
+            //en caso de que no exista el lado izquierdo
+            if (nodo.getIzquierdo() == null){
+                return nodo.getDerecho();
+            }
+            // En caso de que no exista el lado derecho
+            if(nodo.getDerecho()== null){
+                return nodo.getIzquierdo();
+            }
+            
+            Nodo sucesor = encontrarMinimo(nodo.getDerecho());
+            nodo.setValor(sucesor.getValor());
+            nodo.setDerecho(eliminarRecursivo(nodo.getDerecho(), sucesor.getValor().getClave()));
+            
+        }
+        if(resultadocomparacion > 0){ //el nodo comparado fue mayor, asi que se va a la derecha
+            nodo.setDerecho(eliminarRecursivo(nodo.getDerecho(), clave));
+            
+        } else { //el nodo comparado fue menor, asi que va a la izquierda
+            nodo.setIzquierdo(eliminarRecursivo(nodo.getIzquierdo(), clave));
+        }
+        
+        return nodo;
+        
+
+    }
+
+    private Nodo encontrarMinimo(Nodo nodo) {
+        while (nodo.getIzquierdo() != null) {
+            nodo = nodo.getIzquierdo();
+        }
+        return nodo;
+    }
+
 }
 

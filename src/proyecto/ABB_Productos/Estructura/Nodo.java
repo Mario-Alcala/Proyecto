@@ -80,8 +80,9 @@ public class Nodo implements Comparable<Producto> {
     /**
      * compara las claves para saber si va a la izq o der
      */
-    public int compareTo(Producto p) {
-        if(p == null || p.getClave() == null){
+    public int compareTo(Producto p) { //Producto p viene siendo Producto valor en el ABB
+        
+        if(p == null || p.getClave() == null){ //regresara 0
             return 0;
         }
         return valor.getClave().compareToIgnoreCase(p.getClave());

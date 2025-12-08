@@ -8,7 +8,7 @@ package proyecto.pojo;
  *
  * @author aleja
  */
-public class Producto {
+public class Producto implements Comparable<Producto> {
     private String clave;
     private String nombre;
     private int cantidad;
@@ -51,6 +51,11 @@ public class Producto {
 
     public void setPrecio(double precio) {
         this.precio = precio;
+    }
+
+    @Override
+    public int compareTo(Producto o) {
+        return this.clave.compareToIgnoreCase(o.clave);
     }
     
     
