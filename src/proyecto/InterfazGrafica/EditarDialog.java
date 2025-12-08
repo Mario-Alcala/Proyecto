@@ -222,7 +222,7 @@ public class EditarDialog extends javax.swing.JDialog {
         }
         
         
-        // Le pasamos el objeto a editar (productoOriginal) y los nuevos valores.
+        // Le pasamos el objeto a editar (producto) y los nuevos valores.
         boolean exito = inventario.editarProducto(
             this.producto, 
             nuevoNombre, 
