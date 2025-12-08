@@ -170,6 +170,9 @@ public class PrincipalView extends javax.swing.JFrame {
         jlabel_buscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto/resources/img_iconos/lupa.png"))); // NOI18N
         jlabel_buscar.setText("Buscar ");
         jlabel_buscar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jlabel_buscarMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 jlabel_buscarMouseEntered(evt);
             }
@@ -315,6 +318,11 @@ public class PrincipalView extends javax.swing.JFrame {
             Logger.getLogger(PrincipalView.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_jlabel_editarMouseClicked
+
+    private void jlabel_buscarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlabel_buscarMouseClicked
+        this.dispose();
+        new BuscarView().setVisible(true);
+    }//GEN-LAST:event_jlabel_buscarMouseClicked
 
     /**
      * @param args the command line arguments
